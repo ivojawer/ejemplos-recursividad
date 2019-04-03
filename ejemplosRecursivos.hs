@@ -5,8 +5,9 @@ todosAPartirDe numeroBase tope
     | tope >= numeroBase = [numeroBase] ++ todosAPartirDe (numeroBase+1) tope
     | otherwise = []
 
-
-
+fibonacci 0 = 0    
+fibonacci 1 = 1
+fibonacci posicion = fibonacci (posicion-1) + fibonacci (posicion-2)
 
 
 --Con listas
