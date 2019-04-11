@@ -19,7 +19,13 @@ sum' [x] = x
 sum' (x:xs) = x + sum' xs
 
 
+-- fibonacciEntera 1 = [0,1]
+--fibonacciEntera comienzo = [fibonacci comienzo] ++ fibonacciEntera (comienzo+1)
 
+fibonacciEntera n nMasUno = [n+nMasUno] ++ fibonacciEntera nMasUno (n+nMasUno) 
+
+
+sumoUltimosDos = sum.(take 2).reverse
 
 {-ordenar criterio [x] listaOrdenada = 
 ordenar criterio (x:xs) listaOrdenada = -}
