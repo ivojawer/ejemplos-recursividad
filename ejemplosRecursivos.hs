@@ -2,7 +2,7 @@
 --todosAPartirDe :: Int -> [Int]
 
 todosAPartirDe numeroBase tope 
-    | tope >= numeroBase = [numeroBase] ++ todosAPartirDe (numeroBase+1) tope
+    | tope >= numeroBase = numeroBase : todosAPartirDe (numeroBase+1) tope
     | otherwise = []
 
 fibonacci 0 = 0    
@@ -18,14 +18,14 @@ foldl' fx seed (x:xs) =foldl' fx (fx seed x) xs
 sum' [x] = x
 sum' (x:xs) = x + sum' xs
 
+fibonacciEntera = fibonacciAPartirDePos 0
 
--- fibonacciEntera 1 = [0,1]
---fibonacciEntera comienzo = [fibonacci comienzo] ++ fibonacciEntera (comienzo+1)
+fibonacciAPartirDePos pos = fibonacciAPartirDe (fibonacci pos) (fibonacci (pos+1))
 
-fibonacciEntera n nMasUno = [n+nMasUno] ++ fibonacciEntera nMasUno (n+nMasUno) 
+fibonacciAPartirDe n proxN = n : fibonacciAPartirDe proxN (n+proxN) 
 
 
 sumoUltimosDos = sum.(take 2).reverse
 
-{-ordenar criterio [x] listaOrdenada = 
-ordenar criterio (x:xs) listaOrdenada = -}
+
+
