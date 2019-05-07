@@ -25,7 +25,9 @@ fibonacciAPartirDePos pos = fibonacciAPartirDe (fibonacci pos) (fibonacci (pos+1
 fibonacciAPartirDe n proxN = n : fibonacciAPartirDe proxN (n+proxN) 
 
 
-sumoUltimosDos = sum.(take 2).reverse
+sumoDosATodos [] = []
+sumoDosATodos (x:xs) = (x+2) : sumoDosATodos xs
 
 
-
+leHagoATodos _ [] = []
+leHagoATodos algo (x:xs) = algo x : leHagoATodos algo xs
