@@ -1,5 +1,4 @@
 --Sin listas
---todosAPartirDe :: Int -> [Int]
 
 todosAPartirDe numeroBase tope 
     | tope >= numeroBase = numeroBase : todosAPartirDe (numeroBase+1) tope
@@ -10,13 +9,27 @@ fibonacci 1 = 1
 fibonacci posicion = fibonacci (posicion-1) + fibonacci (posicion-2)
 
 
+
+factorial 0 = 1
+factorial n = factorial (n-1) * n
+
 --Con listas
+
+sum' [x] = x
+sum' (x:xs) = x + sum' xs
+
+sumoUltimosDos = sum.(take 2).reverse
+
+leHagoATodos _ [] = []
+leHagoATodos algo (x:xs) = algo x : leHagoATodos algo xs
+
+--Extras
+
 
 foldl' fx seed [x] = fx seed x
 foldl' fx seed (x:xs) =foldl' fx (fx seed x) xs 
 
-sum' [x] = x
-sum' (x:xs) = x + sum' xs
+fibonacciDeInfinita posicion =  fibonacciEntera !! posicion
 
 fibonacciEntera = fibonacciAPartirDePos 0
 
@@ -24,10 +37,3 @@ fibonacciAPartirDePos pos = fibonacciAPartirDe (fibonacci pos) (fibonacci (pos+1
 
 fibonacciAPartirDe n proxN = n : fibonacciAPartirDe proxN (n+proxN) 
 
-
-sumoDosATodos [] = []
-sumoDosATodos (x:xs) = (x+2) : sumoDosATodos xs
-
-
-leHagoATodos _ [] = []
-leHagoATodos algo (x:xs) = algo x : leHagoATodos algo xs
