@@ -14,17 +14,24 @@ factorial 0 = 1
 factorial n = factorial (n-1) * n
 
 --Con listas
+length' [] = 0
+length' (_:xs) = 1 + length' xs
 
 sum' [x] = x
 sum' (x:xs) = x + sum' xs
 
-sumoUltimosDos = sum.(take 2).reverse
+any' _ [] = False
+any' f (x:xs) = f x || any' f xs 
 
-leHagoATodos _ [] = []
-leHagoATodos algo (x:xs) = algo x : leHagoATodos algo xs
+anyQueCortaRecursividad _ [] = False
+anyQueCortaRecursividad f (x:xs) 
+    | f x = True 
+    | otherwise = anyQueCortaRecursividad f xs
+
+map' _ [] = []
+map' algo (x:xs) = algo x : map' algo xs
 
 --Extras
-
 
 foldl' fx seed [x] = fx seed x
 foldl' fx seed (x:xs) =foldl' fx (fx seed x) xs 
